@@ -38,10 +38,11 @@ export default function DashboardLayout({ children }) {
           <div className="flex flex-col h-screen">
 
 
-            <div className="flex flex-grow mt-16">
+            <div className="flex flex-grow ">
               <div
-                className={`fixed top-16 left-0 h-[calc(100vh-4rem)] bg-gray-800 text-white transition-all duration-300 
-                  ${isSidebarMinimized ? 'w-[-5%]' : 'w-30%'} hidden lg:flex flex-col`}
+                className={`bg-gray-800 text-white transition-all duration-300 ${
+                  isSidebarMinimized ? 'w-16' : 'w-40'
+                } hidden lg:flex flex-col`}
               >
                 <button
                   onClick={() => setSidebarMinimized(!isSidebarMinimized)}
@@ -92,7 +93,7 @@ export default function DashboardLayout({ children }) {
                 </div>
               )}
 
-              <main className="flex-grow w-[70%] p-6">
+              <main className="flex-1 p-6 bg-gray-100 overflow-auto">
                 {children}
               </main>
             </div>
