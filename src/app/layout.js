@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { MinusIcon, TvIcon, HomeIcon, UserIcon, CogIcon } from '@heroicons/react/24/outline';
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "./components/Navbar";
+import Link from 'next/link';
 // import Sidebar from "./components/Sidebar";
 import "./globals.css";
 
@@ -22,9 +23,9 @@ export default function DashboardLayout({ children }) {
 
   // Navigation items data
   const navigationItems = [
-    { icon: HomeIcon, label: 'Home' },
-    { icon: UserIcon, label: 'Profile' },
-    { icon: CogIcon, label: 'Settings' },
+    { icon: HomeIcon, label: "Home", href: "/" },
+    { icon: UserIcon, label: "Leads", href: "/leads" },
+    { icon: CogIcon, label: 'Settings', href: "/settings"},
   ];
 
 
@@ -51,17 +52,18 @@ export default function DashboardLayout({ children }) {
                   {isSidebarMinimized ? '>' : '<'}
                 </button>
                 <div className="flex flex-col items-center mt-4">
-                  {navigationItems.map(({ icon: Icon, label }, index) => (
-                    <div
-                      key={index}
-                      className={`flex items-center p-4 hover:bg-gray-700 cursor-pointer ${
-                        isSidebarMinimized ? 'justify-center' : ''
-                      }`}
-                    >
-                      <Icon className="w-6 h-6" />
-                      {!isSidebarMinimized && <span className="ml-4">{label}</span>}
-                    </div>
-                  ))}
+                {navigationItems.map(({ icon: Icon, label, href }, index) => (
+                  <Link
+                    key={index}
+                    href={href} // Use the href property
+                    className={`flex items-center p-4 hover:bg-gray-700 cursor-pointer ${
+                      isSidebarMinimized ? "justify-center" : ""
+                    }`}
+                  >
+                    <Icon className="w-6 h-6" />
+                    {!isSidebarMinimized && <span className="ml-4">{label}</span>}
+                  </Link>
+                ))}
                 </div>
               </div>
 
