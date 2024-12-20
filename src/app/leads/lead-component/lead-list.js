@@ -1,3 +1,5 @@
+import { ChevronUpIcon } from "@heroicons/react/24/outline";
+
 export default function LeadCard() {
   return (
     <div className="shadow-2xl mt-5 p-5" style={{
@@ -16,6 +18,7 @@ export default function LeadCard() {
           <div className="bg-yellow-400 col-span-1"></div>
           <div className="col-span-7">05</div>
         </div>
+        <ChevronUpIcon class="h-6 w-6 text-gray-500" />
       </div>
       <div className="flex">
         <div>
