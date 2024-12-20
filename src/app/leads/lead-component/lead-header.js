@@ -59,9 +59,6 @@ export default function LeadHeader() {
             <ChevronDownIcon className="h-4 w-4 mt-1 mr-1 text-white" />
           </button> 
         </div>
-
-        {/* <div className="flex">
-        </div> */}
       </div>
     </div>
   );

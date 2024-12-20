@@ -1,8 +1,8 @@
-import { ChevronUpIcon } from "@heroicons/react/24/outline";
+import { ChevronUpIcon, EnvelopeIcon, StarIcon } from "@heroicons/react/24/outline";
 
 export default function LeadCard() {
   return (
-    <div className="shadow-2xl mt-5 p-5" style={{
+    <div className="shadow-2xl mt-5 p-5 font-sans" style={{
       border: "2px solid transparent",
       borderRadius: "0.375rem",
       backgroundImage: "linear-gradient(white, white), linear-gradient(to right, #3b82f6, #4f46e5)",
@@ -21,39 +21,71 @@ export default function LeadCard() {
         <ChevronUpIcon class="h-6 w-6 text-gray-500" />
       </div>
       <div className="flex">
-        <div>
+        <div className="w-3/4">
           <p>Copilot has pinpointed 20 key lead that show strong purchase intent and are actively engaging. These leads need your focus</p>
-          <div>
-            <div>
-              <div>
+          <div className="flex">
+            <div className="border-2 border-grey-300 rounded-lg p-3">
+              <div className="flex">
                 <img
                   alt=""
                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                   className="size-8 rounded-full"
                 />
-                <div>
-                  <p>Jane Rayes</p>
-                  <p>COO . Northwind Tranders</p>
+                <div className="pl-2">
+                  <p className="font-semibold text-sm">Jane Rayes</p>
+                  <p className="text-gray-400 text-xs">COO . Northwind Tranders</p>
                 </div>
               </div>
-              <div>
-                <div>
-                  <p>con</p>
-                  <p>Engage with Jane Reyes</p>
+              <div className="p-5 bg-indigo-50 rounded-lg ">
+                <div className="flex justify-between">
+                  <div className="flex">
+                    <EnvelopeIcon className="h4 w-4 text-gray-500" />
+                    <p className="font-semibold text-sm">Engage with Jane Reyes</p>
+                  </div>
+                  {/* <StarIcon className="h-6 w-6 text-gray-500  star-align" /> */}
                 </div>
-                <p>Jane may be intrested in upgrading espresso machines for her instore coffee shops</p>
+                <p className="text-gray-500 text-md ">Jane may be intrested in upgrading espresso machines for her instore coffee shops</p>
               </div>
-              <div>
-                <p>Expand business</p>
-                <p>High buying intent</p>
+              <div className="flex">
+                <p className="text-sm text-gray-300">Expand business</p>
+                <p className="text-2xl text-gray-400 leading-3">.</p>
+                <p className="text-sm text-gray-300">High buying intent</p>
+              </div>
+            </div>
+            <div className="border-2 border-grey-300 rounded-lg p-3">
+              <div className="flex">
+                <img
+                  alt=""
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  className="size-8 rounded-full"
+                />
+                <div className="pl-2">
+                  <p className="font-semibold text-sm">Jane Rayes</p>
+                  <p className="text-gray-400 text-xs">COO . Northwind Tranders</p>
+                </div>
+              </div>
+              <div className="p-5 bg-indigo-50 rounded-lg ">
+                <div className="flex justify-between">
+                  <div className="flex">
+                    <EnvelopeIcon className="h4 w-4 text-gray-500" />
+                    <p className="font-semibold text-sm">Engage with Jane Reyes</p>
+                  </div>
+                  {/* <StarIcon className="h-6 w-6 text-gray-500  star-align" /> */}
+                </div>
+                <p className="text-gray-500 text-md ">Jane may be intrested in upgrading espresso machines for her instore coffee shops</p>
+              </div>
+              <div className="flex">
+                <p className="text-sm text-gray-300">Expand business</p>
+                <p className="text-2xl text-gray-400 leading-3">.</p>
+                <p className="text-sm text-gray-300">High buying intent</p>
               </div>
             </div>
           </div>
         </div>
-        <div>
+        <div className="w-1/4">
           <p>Other key activites</p>
           <div>
-            <div>
+            <div className="flex">
               <img
                 alt=""
                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -61,7 +93,7 @@ export default function LeadCard() {
               />
               <div>
                 <p>Cafe A100 for Woodland Bank</p>
-                <div>
+                <div className="flex">
                   <p>Woodland Bank</p>
                   <p>.</p>
                   <p>$280,000</p>
@@ -71,11 +103,12 @@ export default function LeadCard() {
               </div>
             </div>
             <div>
-              <div>
-                <p>icon</p>
+              <div className="flex">
+                <EnvelopeIcon className="h-6 w-6 text-gray-500" />
                 <p>Review draft and reply to Chris Naido</p>
               </div>
-              <p>star icon</p>
+              
+              <StarIcon class="h-6 w-6 text-gray-500" />
             </div>
           </div>
         </div>
