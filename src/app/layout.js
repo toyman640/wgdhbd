@@ -28,7 +28,6 @@ export default function DashboardLayout({ children }) {
     { icon: CogIcon, label: 'Settings', href: "/settings"},
   ];
 
-
   return (
     <html lang="en">
       <body
@@ -95,7 +94,7 @@ export default function DashboardLayout({ children }) {
                 </div>
               )}
 
-              <main className="flex-1 p-6 bg-gray-100 overflow-auto">
+              <main className="flex-1 pl-3 pr-3 pt-2 pt-2 bg-gray-100 overflow-auto Background">
                 {children}
               </main>
             </div>
