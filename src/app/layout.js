@@ -1,9 +1,10 @@
 'use client';
 import { useState } from 'react';
-import { MinusIcon, TvIcon, HomeIcon, UserIcon, CogIcon } from '@heroicons/react/24/outline';
+import { MinusIcon, TvIcon, HomeIcon, UserIcon, CogIcon, ClipboardDocumentListIcon } from '@heroicons/react/24/outline';
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Link from 'next/link';
+import SkillsPopup from './agent-skills/skills-components/skills-popup';
 // import Sidebar from "./components/Sidebar";
 import "./globals.css";
 
@@ -20,20 +21,22 @@ const geistMono = Geist_Mono({
 export default function DashboardLayout({ children }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false); // For mobile menu toggle
   const [isSidebarMinimized, setSidebarMinimized] = useState(false); // For desktop minimized view
+  const [isSkillsModalOpen, setSkillsModalOpen] = useState(false);
 
   // Navigation items data
   const navigationItems = [
     { icon: HomeIcon, label: "Home", href: "/" },
     { icon: UserIcon, label: "Leads", href: "/leads" },
+    // { icon: ClipboardDocumentListIcon, label: "Agent Skills", href: "/agent-skills" },
     { icon: CogIcon, label: 'Settings', href: "/settings"},
   ];
 
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen overflow-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen `}
       >
-        <div className="">
+        <div className="flex flex-col h-screen">
           <Navbar />
           <div className="flex flex-col h-screen">
 
@@ -54,7 +57,7 @@ export default function DashboardLayout({ children }) {
                 {navigationItems.map(({ icon: Icon, label, href }, index) => (
                   <Link
                     key={index}
-                    href={href} // Use the href property
+                    href={href}
                     className={`flex items-center p-4 hover:bg-gray-700 cursor-pointer ${
                       isSidebarMinimized ? "justify-center" : ""
                     }`}
@@ -63,7 +66,16 @@ export default function DashboardLayout({ children }) {
                     {!isSidebarMinimized && <span className="ml-4">{label}</span>}
                   </Link>
                 ))}
+                <div
+                    className={`flex items-center p-4 hover:bg-gray-700 cursor-pointer ${
+                      isSidebarMinimized ? "justify-center" : ""
+                    }`}
+                    onClick={() => setSkillsModalOpen(true)} // Open modal on click
+                  >
+                    <ClipboardDocumentListIcon className="w-6 h-6" />
+                    {!isSidebarMinimized && <span className="ml-4">Agent Skills</span>}
                 </div>
+              </div>
               </div>
 
               <div className="lg:hidden">
@@ -94,12 +106,15 @@ export default function DashboardLayout({ children }) {
                 </div>
               )}
 
-              <main className="flex-1 pl-3 pr-3 pt-2 pt-2 bg-gray-100 overflow-auto Background">
+              <main className="flex-1 pl-3 pr-3 pt-2 pt-2 bg-gray-100 overflow-y-auto Background">
                 {children}
               </main>
             </div>
           </div>
         </div>
+        {isSkillsModalOpen && (
+          <SkillsPopup open={isSkillsModalOpen} setOpen={setSkillsModalOpen} />
+        )}
       </body>
     </html>
   );
