@@ -1,4 +1,4 @@
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
+import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react';
 import { ChevronUpIcon, UserIcon, DocumentTextIcon, Bars3CenterLeftIcon, DocumentDuplicateIcon, PaperAirplaneIcon, PencilSquareIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
 export default function SkillsPopup({ open, setOpen }) {
