@@ -37,8 +37,8 @@ export default function LeadModal({ isOpen, onClose, lead }) {
             <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">Jane may be interested in upgrading espresso machines for her in-store coffe shops.</p>
           </div>
           <div className="flex gap-2">
-            <button className="bg-white flex px-3 rounded text-sm"><PencilIcon class="h-4 w-4 mt-1 text-gray-500 mr-2" /> Edit</button>
-            <button className="flex text-sm bg-gradient-to-r from-blue-500  to-pink-500 px-3 rounded text-white"><PaperAirplaneIcon class="h-4 w-4 text-white mt-1 mr-2" />
+            <button className="bg-white flex px-3 rounded py-1"><PencilIcon class="h-4 w-4 text-gray-500 mr-2" /> Edit</button>
+            <button className="flex bg-gradient-to-r from-blue-500  to-pink-500 px-3 py-1 rounded text-white"><PaperAirplaneIcon class="h-4 w-4 text-white  mr-2" />
              Approve and send</button>
           </div>
         </div>
@@ -89,8 +89,8 @@ export default function LeadModal({ isOpen, onClose, lead }) {
               </div>
               <div className="flex gap-2">
                 <button className="bg-gray-100 border rounded p-1 text-xs">AI-generated content may be incorrect</button>
-                <HandThumbUpIcon className="h-6 w-6 text-gray-500" />
-                <HandThumbDownIcon className="h-6 w-6 text-gray-500" />
+                <HandThumbUpIcon className="h-5 w-5 text-gray-500" />
+                <HandThumbDownIcon className="h-5 w-5 text-gray-500" />
               </div>
             </div>
           </div>
