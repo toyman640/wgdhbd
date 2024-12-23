@@ -1,11 +1,49 @@
 import { useState } from "react";
-import { ChevronUpIcon, ChevronDownIcon, EnvelopeIcon, StarIcon } from "@heroicons/react/24/outline";
+import { ChevronUpIcon, ChevronDownIcon, EnvelopeIcon, StarIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
 export default function LeadCard() {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const toggleCollapse = () => {
     setIsCollapsed((prevState) => !prevState);
+  };
+
+  const cards = [
+    {
+      name: "Jane Rayes",
+      role: "COO . Northwind Traders",
+      message: "Jane may be interested in upgrading espresso machines for her in-store coffee shops",
+      tags: ["Expand business", "High buying intent"],
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    },
+    {
+      name: "John Doe",
+      role: "CEO . Tech Innovators",
+      message: "John is exploring new software solutions for his company's project management needs",
+      tags: ["Tech upgrade", "Medium buying intent"],
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80",
+    },
+    {
+      name: "Alice Smith",
+      role: "VP . Global Enterprises",
+      message: "Alice is reviewing vendors for office furniture replacement",
+      tags: ["New vendor search", "Low buying intent"],
+      image: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80",
+    },
+    // Add more cards here
+  ];
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? cards.length - 2 : prevIndex - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === cards.length - 2 ? 0 : prevIndex + 1
+    );
   };
 
   return (
@@ -45,72 +83,89 @@ export default function LeadCard() {
           isCollapsed ? "max-h-0" : "max-h-[1000px]"
         }`}
       >
-        <div className="flex flex-col lg:flex-row mt-5">
-          <div className="lg:w-3/4">
-            <p className="mb-4">
+        <div className="flex flex-col lg:flex-row mt-5 gap-6">
+          <div className="lg:w-3/4 pr-5">
+            <p className="mb-4 text-gray-700 font-medium text-sm">
               Copilot has pinpointed 20 key leads that show strong purchase intent and are actively engaging. These leads
               need your focus.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <div className="border-2 border-gray-300 rounded-lg p-3 w-full sm:w-[48%]">
-                <div className="flex">
-                  <img
-                    alt=""
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    className="w-10 h-10 rounded-full"
-                  />
-                  <div className="pl-2">
-                    <p className="font-semibold text-sm">Jane Rayes</p>
-                    <p className="text-gray-400 text-xs">COO . Northwind Tranders</p>
+           
+            <div className="relative">
+                {/* Carousel Container */}
+                <div className="overflow-hidden">
+                  <div
+                    className="flex gap-4 transition-transform duration-300"
+                    style={{
+                      transform: `translateX(-${currentIndex * (50 + 2)}%)`,
+                    }}
+                  >
+                    {cards.map((card, index) => (
+                      <div
+                        key={index}
+                        className="border-2 border-gray-300 rounded-lg p-3 w-full sm:w-[48%] flex-shrink-0"
+                        style={{ flexBasis: "calc(50% - 8px)", height: "200px", }}
+                      >
+                        <div className="flex">
+                          <img
+                            alt=""
+                            src={card.image}
+                            className="w-10 h-10 rounded-full"
+                          />
+                          <div className="pl-2">
+                            <p className="font-semibold text-sm">{card.name}</p>
+                            <p className="text-gray-400 text-xs">{card.role}</p>
+                          </div>
+                        </div>
+                        <div className="p-2 bg-indigo-50 rounded-lg mt-3">
+                          <div className="flex items-center">
+                            <p className="font-semibold text-sm pl-2">
+                              Engage with {card.name}
+                            </p>
+                          </div>
+                          <p className="text-gray-500 text-sm mt-2">{card.message}</p>
+                        </div>
+                        <div className="flex justify-between text-sm text-gray-300 pt-3">
+                          <p>{card.tags[0]}</p>
+                          <p>{card.tags[1]}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <div className="p-5 bg-indigo-50 rounded-lg mt-3">
-                  <div className="flex items-center">
-                    <EnvelopeIcon className="h-4 w-4 text-gray-500" />
-                    <p className="font-semibold text-sm pl-2">Engage with Jane Reyes</p>
-                  </div>
-                  <p className="text-gray-500 text-md mt-2">
-                    Jane may be interested in upgrading espresso machines for her in-store coffee shops
-                  </p>
-                </div>
-                <div className="flex justify-between text-sm text-gray-300 mt-3">
-                  <p>Expand business</p>
-                  <p>High buying intent</p>
-                </div>
-              </div>
 
-              {/* Duplicate section for another lead */}
-              <div className="border-2 border-gray-300 rounded-lg p-3 w-full sm:w-[48%]">
-              <div className="flex">
-                  <img
-                    alt=""
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    className="w-10 h-10 rounded-full"
-                  />
-                  <div className="pl-2">
-                    <p className="font-semibold text-sm">Jane Rayes</p>
-                    <p className="text-gray-400 text-xs">COO . Northwind Tranders</p>
-                  </div>
-                </div>
-                <div className="p-5 bg-indigo-50 rounded-lg mt-3">
-                  <div className="flex items-center">
-                    <EnvelopeIcon className="h-4 w-4 text-gray-500" />
-                    <p className="font-semibold text-sm pl-2">Engage with Jane Reyes</p>
-                  </div>
-                  <p className="text-gray-500 text-md mt-2">
-                    Jane may be interested in upgrading espresso machines for her in-store coffee shops
-                  </p>
-                </div>
-                <div className="flex justify-between text-sm text-gray-300 mt-3">
-                  <p>Expand business</p>
-                  <p>High buying intent</p>
+                {/* Left Arrow */}
+                {/* <button
+                  onClick={handlePrev}
+                  className="absolute top-1/2 -translate-y-1/2 left-0 bg-gray-100 p-2 rounded-full shadow"
+                >
+                  <ChevronLeftIcon className="h-6 w-6 text-gray-500" />
+                </button> */}
+
+                {/* Right Arrow */}
+                <button
+                  onClick={handleNext}
+                  className="absolute top-1/2 -translate-y-1/2 right-0 bg-gray-100 p-2 rounded-full shadow"
+                >
+                  <ChevronRightIcon className="h-6 w-6 text-gray-500" />
+                </button>
+
+                {/* Dots */}
+                <div className="flex justify-center gap-2 mt-4">
+                  {cards.map((_, index) => (
+                    <div
+                      key={index}
+                      onClick={() => setCurrentIndex(index)}
+                      className={`h-2 w-2 rounded-full cursor-pointer ${
+                        index === currentIndex ? "bg-indigo-500" : "bg-gray-300"
+                      }`}
+                    ></div>
+                  ))}
                 </div>
               </div>
-            </div>
           </div>
-          <div className="lg:w-1/4 mt-5 lg:mt-0">
-            <p>Other key activities</p>
-            <div className="shadow-md rounded-md p-3 mt-2">
+          <div className="lg:w-1/3 mt-5 lg:mt-0 border-l border-gray-200 pl-5">
+            <p className="text-gray-700 font-medium mb-5 text-sm">Other key activities</p>
+            <div className="shadow-md rounded-md p-3 mt-5">
               <div className="flex items-center">
                 <img
                   alt=""
