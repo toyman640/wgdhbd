@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { MinusIcon, TvIcon, HomeIcon, UserIcon, CogIcon, ClipboardDocumentListIcon } from '@heroicons/react/24/outline';
+import { MinusIcon, TvIcon, HomeIcon, UserIcon, CogIcon, ClipboardDocumentListIcon, Bars3Icon  } from '@heroicons/react/24/outline';
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Link from 'next/link';
@@ -58,9 +58,13 @@ export default function DashboardLayout({ children }) {
               >
                 <button
                   onClick={() => setSidebarMinimized(!isSidebarMinimized)}
-                  className="p-2 hover:bg-gray-700"
+                  className="pl-5 hover:bg-gray-700"
                 >
-                  {isSidebarMinimized ? '>' : '<'}
+                  <Bars3Icon
+                    className={`h-6 w-6 text-gray-500 transform transition-transform ${
+                      isSidebarMinimized ? 'rotate-180' : ''
+                    }`}
+                  />
                 </button>
                 <div className="flex flex-col items-center mt-4">
                 {navigationItems.map(({ icon: Icon, label, href }, index) => (
