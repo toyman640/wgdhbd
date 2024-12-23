@@ -6,16 +6,16 @@ export default function LeadModal({ isOpen, onClose, lead }) {
   if (!isOpen || !lead) return null; // Do not render if modal is closed or no lead data
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-[60%] lg:max-w-[60%] md:max-w-[60%]">
-        <div className="flex justify-between mb-5">
+    <div className="fixed inset-0 flex items-center justify-center text-xs bg-black bg-opacity-50 z-50">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-[70%] lg:max-w-[70%] md:max-w-[70%]">
+        <div className="flex justify-between mb-2">
           <div className="flex">
             <EnvelopeIcon className="h-5 w-5 text-gray-500" />
             <p className="font-semibold pl-2">Engage with {lead.name}</p>
           </div>
           <button onClick={onClose}><XMarkIcon className="h-6 w-6 text-gray-500" /></button>
         </div>
-        <div className="shadow-md rounded flex p-2 mt-5 mb-5">
+        <div className="shadow-md rounded flex p-2 mt-3 mb-3">
           <img
             src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80"
             width={500}
@@ -24,17 +24,17 @@ export default function LeadModal({ isOpen, onClose, lead }) {
             className="w-10 h-10 rounded-full"
           />
           <div className="pl-2">
-            <p className="font-semibold">{lead.name}</p>
+            <p className="font-semibold text-sm">{lead.name}</p>
             <div className="flex">
               <p>In</p>
-              <p className="text-gray-400 text-sm">COO, Northwind Traders</p>
+              <p className="text-gray-400 ">COO, Northwind Traders</p>
             </div>
           </div>
         </div>
-        <div className="flex justify-between bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-3 rounded">
+        <div className="flex justify-between bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 p-2 rounded">
           <div className="flex">
             <SparklesIcon class="h-4 w-4  bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" />
-            <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-sm">Jane may be interested in upgrading espresso machines for her in-store coffe shops.</p>
+            <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">Jane may be interested in upgrading espresso machines for her in-store coffe shops.</p>
           </div>
           <div className="flex gap-2">
             <button className="bg-white flex px-3 rounded text-sm"><PencilIcon class="h-4 w-4 mt-1 text-gray-500 mr-2" /> Edit</button>
@@ -48,11 +48,11 @@ export default function LeadModal({ isOpen, onClose, lead }) {
           </p>
           <p className="text-sm text-gray-500">Research</p>
         </div>
-        <div className="bg-gradient-to-r from-blue-50  to-blue-100 w-full rounded p-3 pb-">
+        <div className="bg-gradient-to-r from-blue-50  to-blue-100 w-full rounded p-1 pb-">
           <div className="bg-white rounded-md p-5">
-            <div className="bg-blue-50 p-5 rounded-md mt-5">
+            <div className="bg-blue-50 p-3 rounded-md mt-5">
               <p className="text-indigo-500 pb-1">Why I picked this lead</p>
-              <ul className="text-sm list-disc ml-5">
+              <ul className="list-disc ml-5">
                 <li>Jane is a <span className="font-semibold">key decision maker</span> and was browsing <span className="font-semibold">'espresso machines' </span>on First Coffee's website</li>
                 <li>Multiple people at her company have reported 'slowness' during <span className="font-semibold">service requests</span></li>
                 <li>Northwind Traders currently see <span className="font-semibold">$200M</span> in revenue from thier in-store coffee shops.</li>
@@ -61,27 +61,27 @@ export default function LeadModal({ isOpen, onClose, lead }) {
                 <div className="flex bg-white shadow-md rounded-lg p-3">
                   <CheckBadgeIcon className="h-10 w-10 text-blue-500 mr-2" />
                   <div>
-                    <p className="text-sm">Decision maker</p>
+                    <p className="">Decision maker</p>
                     <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 font-extrabold">Yes</p>
                   </div>
                 </div>
                 <div className="flex bg-white shadow-md rounded-lg p-3">
                     <StarIcon class="h-10 w-10 text-amber-500 mr-2"  />
                   <div>
-                    <p className="text-sm">Potential deal value</p>
+                    <p className="">Potential deal value</p>
                     <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 font-extrabold">$1m</p>
                   </div>
                 </div>
                 <div className="flex bg-white shadow-md rounded-lg p-3">
                   <WindowIcon class="h-10 w-10 text-blue-500 mr-2" />
                   <div>
-                    <p className="text-sm">Intent</p>
+                    <p className="">Intent</p>
                     <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 font-extrabold">High</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="flex justify-between mt-3">
+            <div className="flex justify-between mt-3 text-xs">
               <div className="flex gap-2">
                 <button className="bg-gray-100 border rounded p-1"><ShieldCheckIcon className="h-5 w-5 text-gray-500" /></button>
                 <button className="bg-gray-100 border rounded p-1"><span className="px-2  border-r-2">1</span> D365 Sales</button>
@@ -95,34 +95,15 @@ export default function LeadModal({ isOpen, onClose, lead }) {
             </div>
           </div>
           <div className="border-2 border-gray-500 rounded-lg p-5 mt-5 bg-white">
-            <div className="flex justify-between mb-3">
+            <div className="flex justify-between mb-1">
               <h2 className="font-semibold">About Jane</h2>
               <ChevronDownIcon className="h-6 w-6 text-gray-500" />
             </div>
-            <p className="text-gray-500 text-sm">{lead.name}, the Cheif Operating Officer of Northwind Traders, is a dynamic leader with a proven track record in optimizing operations and enhancing customer experinces. Under her guidance, Northwund Traders' in-store coffee shops have
+            <p className="text-gray-500 ">{lead.name}, the Cheif Operating Officer of Northwind Traders, is a dynamic leader with a proven track record in optimizing operations and enhancing customer experinces. Under her guidance, Northwund Traders' in-store coffee shops have
               flourished, becoming a hallmark of quality and innovation. Jane's commitment to excellence makes her an ideal partner for First Coffee. She is always seeking top-tier equipment to elevate her coffee shops' offerings, ensuring consistent, high-quality servive  
             </p>
           </div>
         </div>
-        {/* <h2 className="text-lg font-bold mb-4">Lead Information</h2>
-        <p className="text-sm">
-          <strong>Name:</strong> {lead.name}
-        </p>
-        <p className="text-sm">
-          <strong>Topic:</strong> {lead.topic}
-        </p>
-        <p className="text-sm">
-          <strong>Status:</strong> {lead.status}
-        </p>
-        <p className="text-sm">
-          <strong>Created on:</strong> {lead.createdOn}
-        </p>
-        <button
-          className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-          onClick={onClose}
-        >
-          Close
-        </button> */}
       </div>
     </div>
   );
