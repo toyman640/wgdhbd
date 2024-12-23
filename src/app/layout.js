@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MinusIcon, TvIcon, HomeIcon, UserIcon, CogIcon, ClipboardDocumentListIcon } from '@heroicons/react/24/outline';
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "./components/Navbar";
@@ -22,6 +22,15 @@ export default function DashboardLayout({ children }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false); // For mobile menu toggle
   const [isSidebarMinimized, setSidebarMinimized] = useState(false); // For desktop minimized view
   const [isSkillsModalOpen, setSkillsModalOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // Update state after the component is mounted on the client
+  }, []);
+
+  if (!isClient) {
+    return null; // Prevent rendering until after the component is mounted on the client
+  }
 
   // Navigation items data
   const navigationItems = [
