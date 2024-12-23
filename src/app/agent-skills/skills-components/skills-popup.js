@@ -1,5 +1,5 @@
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react';
-import { ChevronUpIcon, UserIcon, DocumentTextIcon, Bars3CenterLeftIcon, DocumentDuplicateIcon, PaperAirplaneIcon, PencilSquareIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { ChevronUpIcon, UserIcon, DocumentTextIcon, Bars3CenterLeftIcon, DocumentDuplicateIcon, PaperAirplaneIcon, PencilSquareIcon, XMarkIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
 
 export default function SkillsPopup({ open, setOpen }) {
   return (
@@ -55,10 +55,12 @@ export default function SkillsPopup({ open, setOpen }) {
                 </p>
 
               </div>
-              <div className='pb-5 mb-5'>
+              <div className='pb-5 mb-5 mt-5'>
                 <div>
-                  <p>icon</p>
-                  <p>Enable email access</p>
+                  <div className='flex'>
+                    <EnvelopeIcon class="h-4 w-4 text-blue-500 mt-1" />
+                    <p className='pl-2'>Enable email access</p>
+                  </div>
                   <p className='text-xs'>Allow the agent to access email inboxes to read mail from known vendors</p>
                 </div>
                 <div>
@@ -71,14 +73,14 @@ export default function SkillsPopup({ open, setOpen }) {
                         autoComplete="email"
                         className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 "
                       />
-                      <button className='ml-5 bg-lime-300 text-white rounded-lg text-sm px-5 bg-blue-600 w-1/5'>Allow access</button>
+                      <button className='ml-5 bg-blue-600 text-white rounded-lg text-sm px-5 bg-blue-600 w-1/5'>Allow access</button>
                     </div>
                   </form>
                 </div>
               </div>
             </div>
-            <div className="bg-gray-50 px-4 py-5 sm:flex sm:flex-row-reverse sm:px-6 mt-5 mt-5">
-            <button
+            <div className="bg-gray-50 px-4 gap-2 py-5 sm:flex sm:flex-row-reverse sm:px-6 mt-5 mt-5">
+              <button
                 type="button"
                 data-autofocus
                 onClick={() => setOpen(false)}
@@ -89,7 +91,7 @@ export default function SkillsPopup({ open, setOpen }) {
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2  text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+                className="inline-flex w-full justify-center rounded-md bg-gray-300 px-3 py-2  text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
               >
                 Activate
               </button>
