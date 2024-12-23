@@ -5,7 +5,7 @@ import LeadTable from "./lead-table"
 export default function LeadMain () {
 
   return (
-    <div className="w-50 ">
+    <div className=" ">
       <LeadHeader />
       <LeadCard />
       <LeadTable />
