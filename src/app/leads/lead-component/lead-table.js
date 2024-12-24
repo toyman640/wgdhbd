@@ -226,7 +226,7 @@ export default function LeadTable() {
     //   {/* Modal Component */}
     //   <LeadModal isOpen={isModalOpen} onClose={closeModal} lead={selectedLead} />
     // </div>
-    <div className="mt-5">
+    <div className="mt-5 pb-5 mb-5">
       <div className="mb-4">
         <input
           type="text"
