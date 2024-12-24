@@ -117,10 +117,17 @@ export default function DashboardLayout({ children }) {
                       <span className="ml-4">{label}</span>
                     </div>
                   ))}
+                  <div
+                    className="flex items-center p-4 hover:bg-gray-700 cursor-pointer"
+                    onClick={() => setSkillsModalOpen(true)}
+                  >
+                    <ClipboardDocumentListIcon className="w-6 h-6" />
+                    <span className="ml-4">Agent Skills</span>
+                  </div>
                 </div>
               )}
 
-              <main className="flex-1 pl-3 pr-3 pt-2 pt-2 bg-gray-100 overflow-y-auto">
+              <main className="flex-1 pl-3 pr-3 pt-2 bg-gray-100 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-gray-300">
                 {children}
               </main>
             </div>
