@@ -60,7 +60,7 @@ export default function LeadCard() {
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between">
         <h2 className="text-sm font-bold md:basis-1/2 text-center md:text-left">
-          Hi Mona, 68% of goal achieved and rest can be achieved by focusing on 20 top leads
+          Hi Mona, <span className="text-blue-800">68% </span>of goal achieved and rest can be achieved by focusing on 20 top leads
         </h2>
         <div className="md:mt-0 md:basis-1/2 flex flex-col items-center md:items-end lg:items-start">
           <div className="flex pb-1">

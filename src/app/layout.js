@@ -24,9 +24,9 @@ export default function DashboardLayout({ children }) {
   // Navigation items data
   const navigationItems = [
     { icon: HomeIcon, label: "Home", href: "/" },
-    { icon: ClockIcon, label: "Recent", href: "/recent" },
+    // { icon: ClockIcon, label: "Recent", href: "/recent" },
     { icon: UserIcon, label: "Leads", href: "/leads" },
-    { icon: CogIcon, label: 'Settings', href: "/settings" },
+    // { icon: CogIcon, label: 'Settings', href: "/settings" },
     { icon: ClipboardDocumentListIcon, label: "Agent Skills", href: "#", onClick: () => setSkillsModalOpen(true) },
   ];
 
@@ -68,6 +68,24 @@ export default function DashboardLayout({ children }) {
                     {!isSidebarMinimized && <span className="ml-4">{label}</span>}
                   </Link>
                 ))}
+                <Link
+                    href=""
+                    className={`flex text-slate-800 items-center p-4 hover:bg-gray-300 cursor-pointer ${
+                      isSidebarMinimized ? "justify-center" : ""
+                    }`}
+                  >
+                  <ClockIcon className="w-6 h-6" />
+                  {!isSidebarMinimized && <span className="ml-4">Recents</span>}
+                </Link>
+                <Link
+                    href=""
+                    className={`flex text-slate-800 items-center p-4 hover:bg-gray-300 cursor-pointer ${
+                      isSidebarMinimized ? "justify-center" : ""
+                    }`}
+                  >
+                  <CogIcon className="w-6 h-6" />
+                  {!isSidebarMinimized && <span className="ml-4">Settings</span>}
+                </Link>
               </div>
             </div>
 
