@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LeadModal from "./lead.modal";
-import { CheckBadgeIcon } from "@heroicons/react/24/outline";
+import { CheckBadgeIcon, StarIcon } from "@heroicons/react/24/outline";
 
 export default function LeadTable() {
   const leads = [
@@ -88,20 +88,23 @@ export default function LeadTable() {
                   <td className="py-2">{lead.topic}</td>
                   <td className="py-2">{lead.status}</td>
                   <td className="py-2">{lead.createdOn}</td>
-                  <div className="hidden group-hover:flex absolute top-0 left-1/4 transform -translate-x-1/2 -translate-y-full mt-2 p-3 bg-white shadow-md border border-gray-200 rounded-md z-[9999] overflow-visible">
-                    <p className="text-sm font-bold">{lead.name}</p>
-                    {/* <p className="text-sm">Topic: {lead.topic}</p>
-                    <p className="text-sm">Status: {lead.status}</p>
-                    <p className="text-sm">Created on: {lead.createdOn}</p> */}
-                    <div>
-                      <div className="flex bg-white shadow-md rounded-lg p-3 w-full sm:w-[48%] md:w-[32%] lg:w-[20%]">
-                        <CheckBadgeIcon className="h-10 w-10 text-blue-500 mr-2" />
-                        <div>
-                          <p className="text-sm sm:text-base">Decision maker</p>
-                          <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 font-extrabold text-xs sm:text-sm">
-                            Yes
-                          </p>
-                        </div>
+                  <div className="hidden group-hover:flex gap-2 absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full p-3 bg-gray-100 shadow-md border border-gray-200 rounded-md z-[9999]">
+                    <div className="flex  bg-white shadow-md rounded-lg p-3 w-full sm:w-[48%] md:w-[32%] lg:w-[50%]">
+                      <StarIcon className="h-10 w-10 text-amber-500 mr-2" />
+                      <div>
+                        <p className="text-sm sm:text-base">Potential deal value</p>
+                        <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 font-extrabold text-xs sm:text-sm">
+                          $1m
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex bg-white shadow-md rounded-lg p-3 w-full sm:w-[48%] md:w-[32%] lg:w-[50%]">
+                      <CheckBadgeIcon className="h-10 w-10 text-blue-500 mr-2" />
+                      <div>
+                        <p className="text-sm sm:text-base">Decision maker</p>
+                        <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 font-extrabold text-xs sm:text-sm">
+                          Yes
+                        </p>
                       </div>
                     </div>
                   </div>
