@@ -45,7 +45,7 @@ export default function Navbar() {
             >
               <span className="absolute -inset-1.5" />
               <span className="sr-only">View notifications</span>
-              <LightBulbIcon class="h-4 w-4 text-gray-500" />
+              <LightBulbIcon className="h-4 w-4 text-gray-500" />
             </button>
             <button
               type="button"

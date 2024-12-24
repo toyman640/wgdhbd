@@ -1,9 +1,9 @@
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react';
 import { ChevronUpIcon, UserIcon, DocumentTextIcon, Bars3CenterLeftIcon, DocumentDuplicateIcon, PaperAirplaneIcon, PencilSquareIcon, XMarkIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
 
-export default function SkillsPopup({ open, setOpen }) {
+export default function SkillsPopup({ open = false, setOpen = () => {} }) {
   return (
-    <Dialog open={open} onClose={setOpen} className="relative z-10">
+    <Dialog open={open} onClose={() => setOpen(false)} className="relative z-10">
       <DialogBackdrop
         transition
         className="fixed inset-0 bg-gray-500/75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
@@ -58,7 +58,7 @@ export default function SkillsPopup({ open, setOpen }) {
               <div className='pb-5 mb-5 mt-5'>
                 <div>
                   <div className='flex'>
-                    <EnvelopeIcon class="h-4 w-4 text-blue-500 mt-1" />
+                    <EnvelopeIcon className="h-4 w-4 text-blue-500 mt-1" />
                     <p className='pl-2'>Enable email access</p>
                   </div>
                   <p className='text-xs'>Allow the agent to access email inboxes to read mail from known vendors</p>
